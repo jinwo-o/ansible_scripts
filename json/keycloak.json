@@ -1,0 +1,11 @@
+{
+  "realm": "AMDL",
+  "auth-server-url": "https://ga4gh.pmgenomics.ca/auth",
+  "ssl-required": "external",
+  "resource": "JTree",
+  "credentials": {
+    "secret": "ea3d6f6b-3778-4853-94e0-ee63baedf69b"
+  },
+  "confidential-port": 0,
+  "policy-enforcer": {}
+}

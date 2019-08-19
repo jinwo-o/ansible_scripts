@@ -1,0 +1,137 @@
+Flow: Patients -> Samples -> Experiments -> Results -> Result Details
+
+Patients:
+Insert:
+curl -X POST -H "Content-Type: application/json" -d '{
+    "patients.clinical_history": "aiCMRAjWwhTHctcuAxhxKQFDa",
+    "patients.date_received": "1963-02-04T00:00:00Z",
+    "patients.date_reported": "1970-02-17T00:00:00Z",
+    "patients.dob": "1915-05-08T00:00:00Z",
+    "patients.first_name": "Jin",
+    "patients.gender": "EFfRsWxPLDnJObCsNVlgTeMaPEZQleQYhYzRyWJj",
+    "patients.initials": "jzpfRFEgmotaFetHsbZRjxAwnwekrBEmfdzdc",
+    "patients.last_name": "Hwang",
+    "patients.mrn": "kXBAkjQZLCtTMtTCoaNatyyiNK",
+    "patients.on_hcn": "ReKJyiXJrscctNswYNsGRussVmaozFZBsbOJ",
+    "patients.patient_type": "FQGZsnwTKSmVoiGLOpbU",
+    "patients.referring_physician": "pEdKupdOMeRVjaRzLNTX",
+    "patients.se_num": "eUCWKsXbGyRAOmBTvKSJ",
+    "patients.surgical_date": "1911-10-25T00:00:00Z",
+    "patients.patient_id": "1"
+}' http://localhost:8000/Jtree/metadata/0.1.0/patient
+
+Samples:
+Insert:
+curl -X POST -H "Content-Type: application/json" -d '{
+	"samples.cf_plasma_location": "ABC",
+	"samples.comments": "ABC",
+	"samples.container_id": "ABC",
+	"samples.container_name": "ABC",
+	"samples.container_type": "ABC",
+	"samples.container_well": "ABC",
+	"samples.copath_num": "ABC",
+	"samples.date_collected": "1963-02-04T00:00:00Z",
+	"samples.date_received": "1963-02-04T00:00:00Z",
+	"samples.date_submitted": "1963-02-04T00:00:00Z",
+	"samples.delta_ct_value": 132.22,
+	"samples.dna_concentration": 132.22,
+	"samples.dna_extraction_date": "1963-02-04T00:00:00Z",
+	"samples.dna_location": "ABC",
+	"samples.dna_quality": "ABC",
+	"samples.dna_quality_by_rnase_p": 132.22,
+	"samples.dna_sample_barcode": "ABC",
+	"samples.dna_volume": 132.22,
+	"samples.facility": "ABC",
+	"samples.ffpe_qc_date": "1963-02-04T00:00:00Z",
+	"samples.h_e_slide_location": "ABC",
+	"samples.has_sample_files": true,
+	"samples.historical_diagnosis": "ABC",
+	"samples.material_received,omitempty": "ABC",
+	"samples.material_received_num": "ABC",
+	"samples.material_received_other": "ABC",
+	"samples.name_of_requestor": "ABC",
+	"samples.non_uhn_id": "ABC",
+	"samples.other_identifier": "ABC",
+	"samples.pb_bm_location": "ABC",
+	"samples.plasma_location": "ABC",
+	"samples.reviewed_by": "ABC",
+	"samples.rna_concentration": 132.22,
+	"samples.rna_extraction_date": "1963-02-04T00:00:00Z",
+	"samples.rna_location": "ABC",
+	"samples.rna_lysate_location": "ABC",
+	"samples.rna_quality": 132.22,
+	"samples.rna_volume": 132.22,
+	"samples.rnase_p_date": "1963-02-04T00:00:00Z",
+    "samples.sample_id": "", //UPDATE ONLY 
+	"samples.sample_name": "ABC",
+	"samples.sample_size": "ABC",
+	"samples.sample_type": "ABC",
+	"samples.se_num": "ABC",
+	"samples.study_id": "ABC",
+	"samples.surgical_num": "ABC",
+	"samples.test_requested": "ABC",
+	"samples.tumor_percnt_of_circled": 132.22,
+	"samples.tumor_percnt_of_total": 132.22,
+	"samples.tumor_site": "ABC",
+	"samples.volume_of_blood_marrow": 132.22,
+	"samples.wbc_location": "ABC",
+	"samples.patient_id": ""
+}' http://localhost:8000/Jtree/metadata/0.1.0/sample
+
+Experiments:
+Insert:
+curl -X POST -H "Content-Type: application/json" -d '{
+	"experiments.chip_cartridge_barcode": "ABC",
+	"experiments.complete_date": "1963-02-04T00:00:00Z",
+	"experiments.experiment_id": "", //UPDATE ONLY
+	"experiments.has_project_files": true,
+	"experiments.opened_date": "1963-02-04T00:00:00Z",
+	"experiments.panel_assay_screened": "ABC",
+	"experiments.pcr": "ABC",
+	"experiments.priority": "ABC",
+	"experiments.procedure_order_datetime": "1963-02-04T00:00:00Z",
+	"experiments.project_id": "ABC",
+	"experiments.project_name": "ABC",
+	"experiments.sample_id": "",
+	"experiments.study_id": "ABC",
+	"experiments.test_date": "1963-02-04T00:00:00Z"
+}' http://localhost:8000/Jtree/metadata/0.1.0/experiment
+
+Results:
+Insert:        
+curl -X POST -H "Content-Type: application/json" -d '{
+    "results.experiment_id": "",
+    "results.failed_regions": "ABC",
+    "results.mean_depth_of_coveage": 928.123,
+    "results.mlpa_pcr": "ABCD",
+    "results.mutation": "EFG",
+    "results.overall_hotspots_threshold": 419.668,
+    "results.overall_quality_threshold": 123.234,
+    "results.results_id": "", //UPDATE ONLY
+    "results.uid": "Jin",
+    "results.verification_pcr": "Hwang"
+}' localhost:8000/Jtree/metadata/0.1.0/result
+
+Results_details:
+Insert:
+curl -X POST -H "Content-Type: application/json" -d '{
+	"resultdetails.VAF": 123.22,
+	"resultdetails.c_nomenclature": "ABC",
+	"resultdetails.coverage": 123,
+	"resultdetails.exon": 123,
+	"resultdetails.gene": "ABC",
+	"resultdetails.p_nomenclature": "ABC",
+	"resultdetails.pcr": "ABC",
+	"resultdetails.quality_score": 123.22,
+	"resultdetails.result": "ABC",
+	"resultdetails.results_details_id": "", //UPDATE ONLY
+	"resultdetails.results_id": "",
+	"resultdetails.risk_score": 123.22,
+	"resultdetails.uid": "ABC"
+}' localhost:8000/Jtree/metadata/0.1.0/resultdetails
+
+
+
+TRY:
+
+docker exec -it jtree ./bin/jtree

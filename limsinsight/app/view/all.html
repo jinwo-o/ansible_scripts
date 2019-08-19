@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>All Data</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="/app/static/css/style.css">
+        <script type="text/javascript" src="app/static/js/core.js"></script>
+        <script type="text/javascript" src="app/static/js/all.js"></script>
+        <div>
+            <nav class="navbar navbar-default" role="navigation">
+                <ul class="nav navbar-nav navbar-left" style="padding-left:20px;">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/patients">Patients</span></a></li>
+                    <li><a href="/samples">Samples</a></li>
+                    <li><a href="/experiments">Experiments</a></li>
+                    <li><a href="/results">Results</a></li>
+                    <li><a href="/resultdetails">Result Details</a></li>
+                    <li class="active"><a href="/all">All Data<span class="sr-only"></span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </head>
+    <body>
+        <div>
+            <div>
+                <button id="addRow">+</button>
+                <button id="delRow">-</button>
+                <button id="editRow">Edit</button>
+            </div>
+            <table id="alltable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>MRN</th>
+                        <th>SE Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Initials</th>
+                        <th>Gender</th>
+                        <th>Date of Birth</th>
+                        <th>On HCN</th>
+                        <th>Clinical History</th>
+                        <th>Patient Type</th>
+                        <th>Patient ID</th>
+                        <th>Date Received</th>
+                        <th>Referring Physician</th>
+                        <th>Date Reported</th>
+                        <th>Surgical Date</th>
+                        <th>Sample ID</th>
+                        <th>Facility</th>
+                        <th>Test Requested</th>
+                        <th>SE Number</th>
+                        <th>Date Collected</th>
+                        <th>Date Received</th>
+                        <th>Sample Type</th>
+                        <th>Material Received</th>
+                        <th>Material Received Number</th>
+                        <th>Material Received Other</th>
+                        <th>Volume of Blood Marrow</th>
+                        <th>Surgical Number</th>
+                        <th>Tumor Site</th>
+                        <th>Historical Diagnosis</th>
+                        <th>Tumor Percent of Total</th>
+                        <th>Tumor Percent of Circled</th>
+                        <th>Reviewed By</th>
+                        <th>H E Slide Location</th>
+                        <th>NonUHN ID</th>
+                        <th>Name of Requestor</th>
+                        <th>DNA Concentration</th>
+                        <th>DNA Volume</th>
+                        <th>DNA Location</th>
+                        <th>RNA Concentration</th>
+                        <th>RNA Volume</th>
+                        <th>RNA Location</th>
+                        <th>WBC Location</th>
+                        <th>Plasma Location</th>
+                        <th>CF Plasma Location</th>
+                        <th>PB BM Location</th>
+                        <th>RNA Lysate Location</th>
+                        <th>Sample Size</th>
+                        <th>Study ID</th>
+                        <th>Sample Name</th>
+                        <th>Date Submitted</th>
+                        <th>Container Type</th>
+                        <th>Container Name</th>
+                        <th>Container ID</th>
+                        <th>Container Well</th>
+                        <th>CoPath Number</th>
+                        <th>Other Identifier</th>
+                        <th>Has Sample Files</th>
+                        <th>DNA Sample Barcode</th>
+                        <th>DNA Extraction Date</th>
+                        <th>DNA Quality</th>
+                        <th>FFPE QC Date</th>
+                        <th>Delta CT Value</th>
+                        <th>Comments</th>
+                        <th>RNASE P Date</th>
+                        <th>DNA Quality by RNASE P</th>
+                        <th>RNA Quality</th>
+                        <th>RNA Extraction Date</th>
+                        <th>Patient ID</th>
+                        <th>Experiment ID</th>
+                        <th>Study ID</th>
+                        <th>Panel/Assay</th>
+                        <th>Test Date</th>
+                        <th>Chip Cartridge Barcode</th>
+                        <th>Complete Date</th>
+                        <th>PCR</th>
+                        <th>Sample ID</th>
+                        <th>Project Name</th>
+                        <th>Priority</th>
+                        <th>Opened Date</th>
+                        <th>Project ID</th>
+                        <th>Has Project Files</th>
+                        <th>Procedure Order Date Time</th>
+                        <th>Failed Regions</th>
+                        <th>Mean Depth</th>
+                        <th>MLPA PCR</th>
+                        <th>Mutation</th>
+                        <th>Overall Hotspots Threshold</th>
+                        <th>Overall Quality Threshold</th>
+                        <th>Results ID</th>
+                        <th>UID</th>
+                        <th>Verification PCR</th>
+                        <th>Experiment ID</th>
+                        <th>VAF</th>
+                        <th>C.Nomenclature</th>
+                        <th>Coverage</th>
+                        <th>Exon</th>
+                        <th>Gene</th>
+                        <th>P.Nomenclature</th>
+                        <th>PCR</th>
+                        <th>Quality Score</th>
+                        <th>Result</th>
+                        <th>Results Details ID</th>
+                        <th>Results ID</th>
+                        <th>Risk Score</th>
+                        <th>UID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>MRN</th>
+                        <th>SE Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Initials</th>
+                        <th>Gender</th>
+                        <th>Date of Birth</th>
+                        <th>On HCN</th>
+                        <th>Clinical History</th>
+                        <th>Patient Type</th>
+                        <th>Patient ID</th>
+                        <th>Date Received</th>
+                        <th>Referring Physician</th>
+                        <th>Date Reported</th>
+                        <th>Surgical Date</th>
+                        <th>Sample ID</th>
+                        <th>Facility</th>
+                        <th>Test Requested</th>
+                        <th>SE Number</th>
+                        <th>Date Collected</th>
+                        <th>Date Received</th>
+                        <th>Sample Type</th>
+                        <th>Material Received</th>
+                        <th>Material Received Number</th>
+                        <th>Material Received Other</th>
+                        <th>Volume of Blood Marrow</th>
+                        <th>Surgical Number</th>
+                        <th>Tumor Site</th>
+                        <th>Historical Diagnosis</th>
+                        <th>Tumor Percent of Total</th>
+                        <th>Tumor Percent of Circled</th>
+                        <th>Reviewed By</th>
+                        <th>H E Slide Location</th>
+                        <th>NonUHN ID</th>
+                        <th>Name of Requestor</th>
+                        <th>DNA Concentration</th>
+                        <th>DNA Volume</th>
+                        <th>DNA Location</th>
+                        <th>RNA Concentration</th>
+                        <th>RNA Volume</th>
+                        <th>RNA Location</th>
+                        <th>WBC Location</th>
+                        <th>Plasma Location</th>
+                        <th>CF Plasma Location</th>
+                        <th>PB BM Location</th>
+                        <th>RNA Lysate Location</th>
+                        <th>Sample Size</th>
+                        <th>Study ID</th>
+                        <th>Sample Name</th>
+                        <th>Date Submitted</th>
+                        <th>Container Type</th>
+                        <th>Container Name</th>
+                        <th>Container ID</th>
+                        <th>Container Well</th>
+                        <th>CoPath Number</th>
+                        <th>Other Identifier</th>
+                        <th>Has Sample Files</th>
+                        <th>DNA Sample Barcode</th>
+                        <th>DNA Extraction Date</th>
+                        <th>DNA Quality</th>
+                        <th>FFPE QC Date</th>
+                        <th>Delta CT Value</th>
+                        <th>Comments</th>
+                        <th>RNASE P Date</th>
+                        <th>DNA Quality by RNASE P</th>
+                        <th>RNA Quality</th>
+                        <th>RNA Extraction Date</th>
+                        <th>Patient ID</th>
+                        <th>Experiment ID</th>
+                        <th>Study ID</th>
+                        <th>Panel/Assay</th>
+                        <th>Test Date</th>
+                        <th>Chip Cartridge Barcode</th>
+                        <th>Complete Date</th>
+                        <th>PCR</th>
+                        <th>Sample ID</th>
+                        <th>Project Name</th>
+                        <th>Priority</th>
+                        <th>Opened Date</th>
+                        <th>Project ID</th>
+                        <th>Has Project Files</th>
+                        <th>Procedure Order Date Time</th>
+                        <th>Failed Regions</th>
+                        <th>Mean Depth</th>
+                        <th>MLPA PCR</th>
+                        <th>Mutation</th>
+                        <th>Overall Hotspots Threshold</th>
+                        <th>Overall Quality Threshold</th>
+                        <th>Results ID</th>
+                        <th>UID</th>
+                        <th>Verification PCR</th>
+                        <th>Experiment ID</th>
+                        <th>VAF</th>
+                        <th>C.Nomenclature</th>
+                        <th>Coverage</th>
+                        <th>Exon</th>
+                        <th>Gene</th>
+                        <th>P.Nomenclature</th>
+                        <th>PCR</th>
+                        <th>Quality Score</th>
+                        <th>Result</th>
+                        <th>Results Details ID</th>
+                        <th>Results ID</th>
+                        <th>Risk Score</th>
+                        <th>UID</th>
+                    </tr>
+                </tfoot>
+        </div>
+    </body>
+
+</html>

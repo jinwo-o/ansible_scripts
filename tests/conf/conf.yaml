@@ -1,0 +1,12 @@
+database:
+  host: mysql
+  selectuser: select
+  selectpass: passwords
+  updateuser: update
+  updatepass: passwordu
+  name: TestJTree
+keycloak:
+  host: https://ga4gh.pmgenomics.ca
+app:
+  port: 8000
+  host: "127.0.0.1"

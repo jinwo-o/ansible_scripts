@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Patients</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <link rel="stylesheet" href="/app/static/css/style.css">
+        <script type="text/javascript" src="app/static/js/core.js"></script>
+        <script type="text/javascript" src="app/static/js/patients.js"></script>
+        <div>
+            <nav class="navbar navbar-default" role="navigation">
+                <ul class="nav navbar-nav navbar-left" style="padding-left:20px;">
+                    <li><a href="/">Home</a></li>
+                    <li class="active"><a href="/patients">Patients<span class="sr-only"></span></a></li>
+                    <li><a href="/samples">Samples</a></li>
+                    <li><a href="/experiments">Experiments</a></li>
+                    <li><a href="/results">Results</a></li>
+                    <li><a href="/resultdetails">Result Details</a></li>
+                    <li><a href="/all">All Data</a></li>
+                </ul>
+            </nav>
+        </div>
+    </head>
+    <body>
+    	<div>
+            <div>
+                <button id="addRow">+</button>
+                <button id="delRow">-</button>
+                <button id="editRow">Edit</button>
+            </div>
+            <table id="patienttable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>MRN</th>
+                        <th>SE Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Initials</th>
+                        <th>Gender</th>
+                        <th>Date of Birth</th>
+                        <th>On HCN</th>
+                        <th>Clinical History</th>
+                        <th>Patient Type</th>
+                        <th>Patient ID</th>
+                        <th>Date Received</th>
+                        <th>Referring Physician</th>
+                        <th>Date Reported</th>
+                        <th>Surgical Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>MRN</th>
+                        <th>SE Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Initials</th>
+                        <th>Gender</th>
+                        <th>Date of Birth</th>
+                        <th>On HCN</th>
+                        <th>Clinical History</th>
+                        <th>Patient Type</th>
+                        <th>Patient ID</th>
+                        <th>Date Received</th>
+                        <th>Referring Physician</th>
+                        <th>Date Reported</th>
+                        <th>Surgical Date</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </body>
+</html>

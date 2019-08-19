@@ -1,0 +1,35 @@
+# Changed from 3
+version: "2"
+services:
+    mysql:
+        container_name: mysqldb
+        build: ./sql
+        # image: mysql/mysql-server:latest
+        environment:
+            - MYSQL_ROOT_PASSWORD=waterloo
+            - MYSQL_ROOT_HOST=%
+            - MYSQL_DATABASE=JTree
+        ports:
+            - "3306:3306"
+            - "33060:33060"
+
+    jtree:
+       container_name: jtree
+    #    image: docker/jtree
+       build: ./
+       ports:
+           - "8000:8000"
+       links:
+           - mysql
+    limsinsight:
+       container_name: limsinsight
+       build: ./limsinsight
+       ports:
+           - "8003:8003"
+       links:
+           - mysql
+           - jtree
+       depends_on:
+           - mysql
+           - jtree
+

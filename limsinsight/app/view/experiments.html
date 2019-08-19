@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Experiments</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="app/static/css//style.css">
+        <script src="app/static/js/core.js"></script>
+        <script src="app/static/js/experiments.js"></script>
+        <div>
+            <nav class="navbar navbar-default" role="navigation">
+                <ul class="nav navbar-nav navbar-left" style="padding-left:20px;">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/patients">Patients</a></li>
+                    <li><a href="/samples">Samples</a></li>
+                    <li class="active"><a href="/experiments">Experiments<spanclass="sr-only"></span></a></li>
+                    <li><a href="/results">Results</a></li>
+                    <li><a href="/resultdetails">Result Details</a></li>
+                    <li><a href="/all">All Data</a></li>
+                </ul>
+            </nav>
+        </div>
+    </head>
+    <body>
+        <div id="experimenttablesection">
+            <div>
+                <button id="addRow">+</button>
+                <button id="delRow">-</button>
+                <button id="editRow">Edit</button>
+            </div>
+            <table id="experimenttable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Experiment ID</th>
+                        <th>Study ID</th>
+                        <th>Panel/Assay</th>
+                        <th>Test Date</th>
+                        <th>Chip Cartridge Barcode</th>
+                        <th>Complete Date</th>
+                        <th>PCR</th>
+                        <th>Sample ID</th>
+                        <th>Project Name</th>
+                        <th>Priority</th>
+                        <th>Opened Date</th>
+                        <th>Project ID</th>
+                        <th>Has Project Files</th>
+                        <th>Procedure Order Date Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Experiment ID</th>
+                        <th>Study ID</th>
+                        <th>Panel/Assay</th>
+                        <th>Test Date</th>
+                        <th>Chip Cartridge Barcode</th>
+                        <th>Complete Date</th>
+                        <th>PCR</th>
+                        <th>Sample ID</th>
+                        <th>Project Name</th>
+                        <th>Priority</th>
+                        <th>Opened Date</th>
+                        <th>Project ID</th>
+                        <th>Has Project Files</th>
+                        <th>Procedure Order Date Time</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </body>
+</html>

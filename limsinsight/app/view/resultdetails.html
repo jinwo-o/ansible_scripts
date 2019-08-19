@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Result Details</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="/app/static/css/style.css">
+        <script src="app/static/js/core.js"></script>
+        <script src="app/static/js/resultdetails.js"></script>
+        <div>
+            <nav class="navbar navbar-default" role="navigation">
+                <ul class="nav navbar-nav navbar-left" style="padding-left:20px;">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/patients">Patients</a></li>
+                    <li><a href="/samples">Samples</a></li>
+                    <li><a href="/experiments">Experiments</a></li>
+                    <li><a href="/results">Results</a></li>
+                    <li class="active"><a href="/resultdetails">Result Details<span class="sr-only"></span></a></li>
+                    <li><a href="/all">All Data</a></li>
+                </ul>
+            </nav>
+        </div>
+    </head>
+    <body>
+        <div>
+            <div>
+                <button id="addRow">+</button>
+                <button id="delRow">-</button>
+                <button id="editRow">Edit</button>
+            </div>
+            <table id="resultdetailstable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>VAF</th>
+                        <th>C.Nomenclature</th>
+                        <th>Coverage</th>
+                        <th>Exon</th>
+                        <th>Gene</th>
+                        <th>P.Nomenclature</th>
+                        <th>PCR</th>
+                        <th>Quality Score</th>
+                        <th>Result</th>
+                        <th>Results Details ID</th>
+                        <th>Results ID</th>
+                        <th>Risk Score</th>
+                        <th>UID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>VAF</th>
+                        <th>C.Nomenclature</th>
+                        <th>Coverage</th>
+                        <th>Exon</th>
+                        <th>Gene</th>
+                        <th>P.Nomenclature</th>
+                        <th>PCR</th>
+                        <th>Quality Score</th>
+                        <th>Result</th>
+                        <th>Results Details ID</th>
+                        <th>Results ID</th>
+                        <th>Risk Score</th>
+                        <th>UID</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </body>
+</html>

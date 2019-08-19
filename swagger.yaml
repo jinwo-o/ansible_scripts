@@ -1,0 +1,703 @@
+---
+swagger: "2.0"
+info:
+  description: "Metadata API"
+  version: "0.1.0"
+  title: "Jtree Metadata API"
+  contact:
+    email: "info@distributedgenomics.ca"
+  license:
+    name: "GPL"
+    url: "https://www.gnu.org/licenses/gpl-3.0.en.html"
+host: "virtserver.swaggerhub.com"
+basePath: "/Jtree/metadata/0.1.0"
+schemes:
+- "http"
+paths:
+  /patient:
+    post:
+      summary: "adds a patient item"
+      description: "Adds a patient to the system"
+      operationId: "addPatient"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "patient"
+        description: "Patient"
+        required: false
+        schema:
+          $ref: "#/definitions/Patient"
+      responses:
+        201:
+          description: "item created"
+        400:
+          description: "invalid input, object invalid"
+        409:
+          description: "an existing item already exists"
+          
+  /sample:
+    post:
+      summary: "adds a sample"
+      description: "Adds a sample to the system"
+      operationId: "addSample"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "sample"
+        description: "Sample"
+        required: false
+        schema:
+          $ref: "#/definitions/Sample"
+      responses:
+        201:
+          description: "item created"
+        400:
+          description: "invalid input, object invalid"
+        409:
+          description: "an existing item already exists"
+          
+  /experiment:
+    post:
+      summary: "adds an experiment item"
+      description: "Adds an experiment to the system"
+      operationId: "addExperiment"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "experiment"
+        description: "Experiment"
+        required: false
+        schema:
+          $ref: "#/definitions/Experiment"
+      responses:
+        201:
+          description: "item created"
+        400:
+          description: "invalid input, object invalid"
+        409:
+          description: "an existing item already exists"
+          
+  /result:
+    post:
+      summary: "adds a result item"
+      description: "Adds a result to the system"
+      operationId: "addResult"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "result"
+        description: "Result"
+        required: false
+        schema:
+          $ref: "#/definitions/Result"
+      responses:
+        201:
+          description: "item created"
+        400:
+          description: "invalid input, object invalid"
+        409:
+          description: "an existing item already exists"
+
+  /resultdetails:
+    post:
+      summary: "adds a resultdetails item"
+      description: "Adds a resultdetails to the system"
+      operationId: "addResultdetails"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "resultdetails"
+        description: "Resultdetails"
+        required: false
+        schema:
+          $ref: "#/definitions/Resultdetails"
+      responses:
+        201:
+          description: "item created"
+        400:
+          description: "invalid input, object invalid"
+        409:
+          description: "an existing item already exists"
+
+
+  /columns:
+      get:
+        summary: "gets columns"
+        description: "gets column names"
+        operationId: "getSampleColumns"
+        produces:
+        - "application/json"
+        responses:
+          200:
+            description: "columns"
+            schema:
+              type: "array"
+              items:
+                type: "string"
+          400:
+            description: "bad input parameter"          
+
+  /query:
+    post:
+      summary: "Query for Sample"
+      operationId: "getSamplesByQuery"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: body
+        name: query
+        required: false
+        schema:
+            $ref: "#/definitions/Query"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Sample"
+        404:
+          description: "Sample not found"
+
+  /logout:
+    get:
+      summary: "logsout"
+      description: "logs users out"
+      operationId: "logout"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "boolean"
+        404:
+          description: "Sample not found"
+
+  /upload:
+      post:
+        summary: Uploads a file.
+        consumes:
+          - multipart/form-data
+        parameters:
+          - in: formData
+            name: upfile
+            type: file
+            description: The file to upload.
+        responses:
+          200:
+            description: "OK"
+            schema:
+              type: "boolean"
+          404:
+            description: "File not found"
+          409:
+            description: "an existing item already exists"
+
+definitions:
+  Patient:
+    type: "object"
+    properties:
+      patient_id:
+        type: "string"
+        x-nullable: true        
+        x-go-custom-tag: "db:\"patient_id\""
+      sample_id:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"sample_id\""
+      first_name:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"first_name\""
+      last_name:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"last_name\""
+      initials:
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"initials\""
+      gender: 
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"gender\""
+      mrn:
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"mrn\""
+      dob:
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"dob\""
+      on_hcn:
+        type: "string"   
+        x-nullable: true         
+        x-go-custom-tag: "db:\"on_hcn\""    
+      clinical_history:
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"clinical_history\""
+      patient_type:
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"patient_type\""
+      se_num:
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"se_num\""
+      date_received: 
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"date_received\""
+      referring_physician: 
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"referring_physician\""
+      date_reported:
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"date_reported\""
+      surgical_date: 
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"surgical_date\""
+  Sample:
+    type: "object"
+    properties:
+      sample_id:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"sample_id\""
+      facility:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"facility\""
+      test_requested:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"test_requested\""
+      se_num:
+        type: "string"
+        x-nullable: true        
+        x-go-custom-tag: "db:\"se_num\""
+      date_collected:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"date_collected\""      
+      date_received:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"date_received\""      
+      sample_type:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"sample_type\""      
+      material_received:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"material_received\""      
+      material_received_num:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"material_received_num\""      
+      material_received_other:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"material_received_other\""      
+      volume_of_blood_marrow:
+        type: "number" 
+        format: "float"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"volume_of_blood_marrow\""
+      surgical_num:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"surgical_num\""
+      tumor_site:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"tumor_site\""
+      historical_diagnosis:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"historical_diagnosis\""
+      tumor_percnt_of_total:
+        type: "number" 
+        format: "float"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"tumor_percnt_of_total\""
+      tumor_percnt_of_circled:
+        type: "number" 
+        format: "float"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"tumor_percnt_of_circled\""
+      reviewed_by:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"reviewed_by\""
+      h_e_slide_location:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"h_e_slide_location\""
+      non_uhn_id:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"non_uhn_id\""
+      name_of_requestor:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"name_of_requestor\""
+      dna_concentration:
+        type: "number" 
+        format: "float"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"dna_concentration\""
+      dna_volume:
+        type: "number" 
+        format: "float"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"dna_volume\""
+      dna_location: 
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"dna_location\""
+      rna_concentration: 
+        type: "number" 
+        format: "float"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"rna_concentration\""
+      rna_volume:
+        type: "number" 
+        format: "float"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"rna_volume\""
+      rna_location:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"rna_location\""
+      wbc_location:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"wbc_location\""
+      plasma_location:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"plasma_location\""
+      cf_plasma_location:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"cf_plasma_location\""
+      pb_bm_location:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"pb_bm_location\""
+      rna_lysate_location:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"rna_lysate_location\""
+      sample_size:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"sample_size\""
+      study_id:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"study_id\""
+      sample_name:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"sample_name\""
+      date_submitted:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"date_submitted\""
+      container_type:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"container_type\""
+      container_name:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"container_name\""
+      container_id:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"container_id\""
+      container_well:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"container_well\""
+      copath_num:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"copath_num\""
+      other_identifier:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"other_identifier\""
+      has_sample_files:
+        type: "boolean"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"has_sample_files\""
+      dna_sample_barcode:
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"dna_sample_barcode\""
+      dna_extraction_date:
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"dna_extraction_date\""
+      dna_quality:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"dna_quality\""
+      ffpe_qc_date: 
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"ffpe_qc_date\""
+      delta_ct_Value: 
+        type: "number" 
+        format: "float"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"delta_ct_Value\""
+      comments:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"comments\""
+      rnase_p_date: 
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"rnase_p_date\""
+      dna_quality_by_rnase_p: 
+        type: "number" 
+        format: "float"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"dna_quality_by_rnase_p\""
+      rna_quality:
+        type: "number" 
+        format: "float"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"rna_quality\""
+      rna_extraction_date:
+        type: "string" 
+        x-nullable: true         
+        x-go-custom-tag: "db:\"rna_extraction_date\""
+  Query:
+    type: "object"
+    properties:
+      selected_condition:
+        type: "array"
+        items:
+          type: "array"
+          items:
+            type: "string"
+      selected_tables:
+        type: "array"
+        items:
+          type: "string"
+      selected_fields:
+        type: "array"
+        items:
+          type: "string"
+  Experiment: 
+    type: "object"
+    properties: 
+      chip_cartridge_barcode: 
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"chip_cartridge_barcode\""
+      complete_date:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"complete_date\""
+      experiment_id:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"experiment_id\""
+      has_project_files:
+        type: "boolean"
+        x-nullable: true
+        x-go-custom-tag: "db:\"has_project_files\""
+      opened_date:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"opened_date\""
+      panel_assay_screened:
+        type: "number"
+        format: "int"
+        x-nullable: true
+        x-go-custom-tag: "db:\"panel_assay_screened\""
+      pcr:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"pcr\""
+      priority:
+        type: "number"
+        format: "int"
+        x-nullable: true
+        x-go-custom-tag: "db:\"priority\""
+      procedure_order_datetime:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"procedure_order_datetime\""
+      project_id:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"project_id\""
+      project_name:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"project_name\""
+      sample_id:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"sample_id\""
+      study_id:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"study_id\""
+      test_date:
+        type: "string"
+        x-nullable: true  
+        x-go-custom-tag: "db:\"test_date\""
+  Result: 
+    type: "object"
+    properties: 
+      sample_id:
+        type: "string"
+        x-nullable: true         
+        x-go-custom-tag: "db:\"sample_id\""
+      uid: 
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"uid\""
+      results_id:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"results_id\""
+      failed_regions:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"failed_regions\""
+      mutation:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"mutation\""
+      verification_pcr:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"verification_pcr\""
+      mlpa_pcr:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"mlpa_pcr\""
+      overall_quality_threshold:
+        type: "number"
+        format: "float"
+        x-nullable: true
+        x-go-custom-tag: "db:\"overall_quality_threshold\""
+      overall_hotspots_threshold:
+        type: "number"
+        format: "float"
+        x-nullable: true
+        x-go-custom-tag: "db:\"overall_hotspots_threshold\""
+      mean_depth_of_coveage:
+        type: "number"
+        format: "float"
+        x-nullable: true
+        x-go-custom-tag: "db:\"mean_depth_of_coveage\""
+  Resultdetails: 
+    type: "object"
+    properties: 
+      uid: 
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"uid\""
+      results_id:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"results_id\""
+      results_details_id:
+        type: "string"
+        x-nullable: true 
+        x-go-custom-tag: "db:\"results_details_id\""     
+      pcr:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"pcr\""
+      sample_id:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"sample_id\""
+      gene:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"gene\""
+      exon:
+        type: "number"
+        format: "int"
+        x-nullable: true
+        x-go-custom-tag: "db:\"exon\""
+      p_nomenclature:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"p_nomenclature\""
+      c_nomenclature:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"c_nomenclature\""
+      VAF:
+        type: "number"
+        format: "float"
+        x-nullable: true
+        x-go-custom-tag: "db:\"VAF\""
+      quality_score:
+        type: "number"
+        format: "float"
+        x-nullable: true
+        x-go-custom-tag: "db:\"quality_score\""
+      coverage:
+        type: "number"
+        format: "int"
+        x-nullable: true
+        x-go-custom-tag: "db:\"coverage\""
+      risk_score:
+        type: "number"
+        format: "float"
+        x-nullable: true
+        x-go-custom-tag: "db:\"risk_score\""
+      result:
+        type: "string"
+        x-nullable: true
+        x-go-custom-tag: "db:\"result\""
+  Record:
+    type: "object"
+    properties:
+      Sample:
+        $ref: "#/definitions/Sample"
+      Patient:
+        $ref: "#/definitions/Patient"
+      Experiment:
+        $ref: "#/definitions/Experiment"
+      Result:
+        $ref: "#/definitions/Result"
+      Resultdetails:
+        $ref: "#/definitions/Resultdetails"
